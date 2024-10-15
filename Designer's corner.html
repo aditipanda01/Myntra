@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra Designer Portal</title>
+    <link rel="stylesheet" href="DC.css">
+</head>
+<body>
+    <h1>Myntra Designer Portal</h1>
+
+    <div class="portal">
+        <form id="design-form">
+            <div class="form-group">
+                <label for="design-title">Name of the designer:</label>
+                <input type="text" id="design-title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="design-category">Category:</label>
+                <select id="design-category" name="category" required>
+                    <option value="">Select Category</option>
+                    <option value="footwear">Footwear</option>
+                    <option value="clothes">Clothes</option>
+                    <option value="bags">Bags</option>
+                    <option value="accessories">Accessories</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="design-images">Design Images (Drag & Drop):</label>
+                <input type="file" id="design-images" name="images[]" multiple required>
+                <p id="image-preview"></p>
+            </div>
+            <div class="form-group">
+                <label for="design-description">Description:</label>
+                <textarea id="design-description" name="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="design-inspiration">Inspiration:</label>
+                <input type="text" id="design-inspiration" name="inspiration">
+            </div>
+            <div class="form-group">
+                <label for="design-materials">Materials (Optional):</label>
+                <input type="text" id="design-materials" name="materials">
+            </div>
+            <div class="form-group">
+                <label for="design-techniques">Techniques (Optional):</label>
+                <input type="text" id="design-techniques" name="techniques">
+            </div>
+           
+            <button type="submit">Submit Design</button>
+        </form>
+    </div>
+
+    <h1 id="heading">Creator's Canvas</h1>
+
+    <div id="sample">
+        <div class="box1">
+            <img src="https://i.pinimg.com/564x/ae/e7/4e/aee74e86d1b54a31d7356864d13a52a4.jpg" height="300px" width="300px">
+            <div class="details">
+                <p class="category">Category: Clothes</p>
+                <p class="Likes">Likes: 4.5K</p>
+                <button type="button" class="like-button">Like</button>
+            </div>
+        </div>
+        <div class="box2">
+            <img src="https://i.pinimg.com/564x/61/70/4d/61704da61bc098bab44591d792b192fa.jpg" height="300px" width="300px">
+            <div class="details">
+                <p class="category">Category: Footwear</p>
+                <p class="Likes">Likes: 4.2k</p>
+                <button type="button" class="like-button">Like</button>
+            </div>
+        </div>
+        <div class="box3">
+            <img src="https://i.pinimg.com/564x/5f/1d/74/5f1d74be36415231264dfcbceb05cb14.jpg" height="300px" width="300px">
+            <div class="details">
+                <p class="category">Category: Bag</p>
+                <p class="Likes">Likes: 4.7k</p>
+                <button type="button" class="like-button">Like</button>
+            </div>
+        </div>
+        <div class="box4">
+            <img src="https://5.imimg.com/data5/CI/EG/MY-51357695/drawing-sketches-500x500.jpg" height="300px" width="350px">
+            <div class="details">
+                <p class="category">Category: Accessories</p>
+                <p class="Likes">Likes: 4.0k</p>
+                <button type="button" class="like-button">Like</button>
+            </div>
+        </div>
+    </div>
+    <div class="designer-of-the-week">
+        <h2>Designer of the Week</h2>
+        <div id="designerOfWeek">
+            <p>No designer has crossed the required likes yet.</p>
+        </div>
+    </div>
+    
+
+    <script src="DC.js"></script>
+</body>
+</html>
