@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function showMaterialOptions() {
+            const category = document.getElementById('category').value;
+            const materialForm = document.getElementById('materialForm');
+
+            // Reset material options
+            materialForm.innerHTML = '<option value="All">Material</option>';
+
+            // Define materials based on category
+            const materials = {
+                'Dresses': ['cotton', 'polyester', 'silk', 'rayon', 'linen', 'jersey'],
+                'Tops and T-shirts': ['cotton', 'polyester', 'blends', 'bamboo', 'viscose'],
+                'Jeans and Trousers': ['denim', 'cotton', 'polyester', 'spandex', 'twill'],
+                'Skirts': ['cotton', 'polyester', 'silk', 'velvet', 'linen'],
+                'Outerwear (Jackets, Coats)': ['wool', 'cotton', 'polyester', 'leather', 'nylon'],
+                'Handbags': ['leather', 'canvas', 'polyester', 'faux_leather', 'cotton'],
+                'Footwear (Shoes, Sandals, Boots)': ['leather', 'suede', 'canvas', 'rubber', 'synthetic'],
+                'Jewelry (Necklaces, Earrings, Rings)': ['gold', 'silver', 'stainless_steel', 'gemstones', 'resin'],
+                'Sunglasses and Eyewear': ['metal', 'plastic', 'polycarbonate', 'acetate', 'nylon'],
+            };
+
+            // Add relevant materials
+            if (materials[category]) {
+                materials[category].forEach(material => {
+                    const option = document.createElement('option');
+                    option.value = material;
+                    option.textContent = material.charAt(0).toUpperCase() + material.slice(1);
+                    materialForm.appendChild(option);
+                });
+            }
+
+            showSizeOptions(category);
+        }
+
+        function showSizeOptions(category) {
+            const sizeForm = document.getElementById('sizeForm');
+            // Reset size options
+            sizeForm.innerHTML = '<option value="All">Size</option>';
+
+            // Define sizes based on category
+            const sizes = {
+                'Dresses': ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
+                'Tops and T-shirts': ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
+                'Jeans and Trousers': ['28', '30', '32', '34', '36', '38'],
+                'Skirts': ['XS', 'S', 'M', 'L', 'XL'],
+                'Outerwear (Jackets, Coats)': ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
+                'Handbags': ['One Size'],
+                'Footwear (Shoes, Sandals, Boots)': ['5', '6', '7', '8', '9', '10', '11', '12'],
+                'Jewelry (Necklaces, Earrings, Rings)': ['One Size'],
+                'Sunglasses and Eyewear': ['One Size'],
+            };
+
+            // Add relevant sizes
+            if (sizes[category]) {
+                sizes[category].forEach(size => {
+                    const option = document.createElement('option');
+                    option.value = size;
+                    option.textContent = size;
+                    sizeForm.appendChild(option);
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">Myntra</div>
+        <nav>
+            <ul>
+                <li><a href="Designer's corner.html">Designer's Corner</a></li>
+                <li><a href="#">Scratch and Dent</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Form -->
+    <section class="form-container">
+        <form id="uploadForm">
+            <div>
+                <input type="file" id="image" name="image" accept="image/*">
+            </div>
+            <div>
+                <select id="category" name="category" onchange="showMaterialOptions()">
+                    <option value="All">Product Type</option>
+                    <option value="Dresses">Dresses</option>
+                    <option value="Tops and T-shirts">Tops and T-shirts</option>
+                    <option value="Jeans and Trousers">Jeans and Trousers</option>
+                    <option value="Skirts">Skirts</option>
+                    <option value="Outerwear (Jackets, Coats)">Outerwear (Jackets, Coats)</option>
+                    <option value="Handbags">Handbags</option>
+                    <option value="Footwear (Shoes, Sandals, Boots)">Footwear (Shoes, Sandals, Boots)</option>
+                    <option value="Jewelry (Necklaces, Earrings, Rings)">Jewelry (Necklaces, Earrings, Rings)</option>
+                    <option value="Sunglasses and Eyewear">Sunglasses and Eyewear</option>
+                </select>
+            </div>
+            <div>
+                <select id="genderForm" name="gender">
+                    <option value="All">Gender</option>
+                    <option value="men">Men</option>
+                    <option value="women">Women</option>
+                </select>
+            </div>
+            <div>
+                <input type="number" placeholder="Enter price in INR" id="price" name="price">
+            </div>
+            <div>
+                <select id="materialForm" name="material">
+                    <option value="All">Material</option>
+                </select>
+            </div>
+            <div>
+                <select id="colorForm" name="color">
+                    <option value="All">Color</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="black">Black</option>
+                    <option value="white">White</option>
+                    <option value="grey">Grey</option>
+                    <option value="pink">Pink</option>
+                    <option value="orange">Orange</option>
+                </select>
+            </div>
+            <div>
+                <select id="sizeForm" name="size">
+                    <option value="All">Size</option>
+                </select>
+            </div>
+            <div>
+                <select id="preownedForm" name="preowned">
+                    <option value="All">Pre-owned</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">Upload</button>
+            </div>
+        </form>
+    </section>
+
+    <section>
+        <div class="banner">
+            <img src="bgimg.jpg" alt="Banner">
+            <div class="banner-text">
+                <h1>Discover Your Style</h1>
+                <p>Where Fashion Meets Comfort</p>
+            </div>
+        </div>
+    </section>
+    
+    <main>
+        <div class="main-content">
+            <h2>Results</h2>
+            <div id="productList"> 
+                <!-- Products -->
+            </div>
+            <div class="search-bar">
+                <div class="brown-box">
+                    <h3>Gender</h3>
+                    <select id="gender">
+                        <option value="all">All</option>
+                        <option value="men">Men</option>
+                        <option value="women">Women</option>
+                    </select>
+                    <h3>Search Items</h3>
+                    <input type="text" id="itemSearch" placeholder="Search for items...">
+                    <h3>Dress Type</h3>
+                    <select id="dressType">
+                        <option value="all">All</option>
+                        <option value="Dresses">Dresses</option>
+                        <option value="Tops and T-shirts">Tops and T-shirts</option>
+                        <option value="Jeans and Trousers">Jeans and Trousers</option>
+                        <option value="Skirts">Skirts</option>
+                        <option value="Outerwear (Jackets, Coats)">Outerwear (Jackets, Coats)</option>
+                        <option value="Handbags">Handbags</option>
+                        <option value="Footwear (Shoes, Sandals, Boots)">Footwear (Shoes, Sandals, Boots)</option>
+                        <option value="Jewelry (Necklaces, Earrings, Rings)">Jewelry (Necklaces, Earrings, Rings)</option>
+                        <option value="Sunglasses and Eyewear">Sunglasses and Eyewear</option>
+                    </select>
+                    <h3>Material</h3>
+                    <select id="material">
+                        <option value="all">All</option>
+                        <option value="cotton">Cotton</option>
+                        <option value="silk">Silk</option>
+                    </select>
+                    <h3>Color</h3>
+                    <select id="color">
+                        <option value="all">All</option>
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                        <option value="grey">Grey</option>
+                        <option value="pink">Pink</option>
+                        <option value="orange">Orange</option>
+                    </select>
+                    <h3>Size</h3>
+                    <select id="size">
+                        <option value="all">All</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                    </select>
+                    <h3>Pre-owned</h3>
+                    <select id="preowned">
+                        <option value="all">All</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <h3>Price Range</h3>
+                    <input type="range" id="priceRange" min="0" max="5000" step="100">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section>
+        <h2>Loco Seller Section</h2>
+        <div id="businessList">
+            <!-- Business items -->
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
